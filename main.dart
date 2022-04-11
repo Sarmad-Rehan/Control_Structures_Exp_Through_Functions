@@ -1,36 +1,42 @@
-// Program 2.5 (5.5)
+// Program 2.26 (5.26) Program that inputs a choice from the given menu
+// and the no of months and then calculate charges.
 
 import 'dart:io';
 
 void main(List<String> args) {
-  findMax(inputFirstNumber(), inputSecondNumber(), inputThreeNumber());
-}
+  print("Health Club Memebership Menu");
+  print("[1] Standard Adult Memebership");
+  print("[2] Child Membership");
+  print("[3] Senior Citizen Membership");
+  print("[4] Quit the program");
 
-int? inputFirstNumber() {
-  stdout.write("Enter Number One: ");
-  String? inputNumOne = stdin.readLineSync();
-  return (int.tryParse(inputNumOne!));
-}
+  stdout.write("Enter your Choice: ");
+  String? inputChoice = stdin.readLineSync();
+  int? choice = int.tryParse(inputChoice!);
+  int? charges;
 
-int? inputSecondNumber() {
-  stdout.write("Enter Number Two: ");
-  String? inputNumOne = stdin.readLineSync();
-  return (int.tryParse(inputNumOne!));
-}
+  if (choice! >= 1 && choice <= 3) {
+    stdout.write("For how many months: ");
+    String? inputNoOfMonths = stdin.readLineSync();
+    int? noOfMonths = int.tryParse(inputNoOfMonths!);
 
-int? inputThreeNumber() {
-  stdout.write("Enter Number Three: ");
-  return (int.tryParse(stdin.readLineSync()!));
-}
-
-void findMax(int? numOne, int? numTwo, int? numThree) {
-  int max = numOne!;
-
-  if (numTwo! > max) {
-    max = numTwo;
+    switch (choice) {
+      case 1:
+        charges = 50 * noOfMonths!;
+        break;
+      case 2:
+        charges = 50 * noOfMonths!;
+        break;
+      case 3:
+        charges = 50 * noOfMonths!;
+        break;
+    }
+    print("Total Charges are Rs.$charges");
+  } else if (choice != 4) {
+    print(
+        "The Choices are between 1-4, Please run the program again and Enter your choice between the given range");
   }
-  if (numThree! > max) {
-    max = numThree;
-  }
-  print("The Maximum Number is $max");
 }
+
+int? calculateCharges() {}
+int? inputChoice() {}
